@@ -23,7 +23,7 @@ return new class extends Migration
                 ->onDelete('set null')
                 ->onUpdate('set null');
 
-            //creo la llave foranea para teacher
+            //voy a crear una llave foranea para teacher
             $table->unsignedBigInteger('teacher_id')->nullable()->unique();
 
             $table->foreign('teacher_id')
