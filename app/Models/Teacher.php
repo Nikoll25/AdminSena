@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Teacher extends Model
 {
     use HasFactory;
+
+    //Relación uno a muchos(inversa) con trainingCenter
+     public function trainingCenter(){
+        return $this->belongsTo('App\Models\TrainingCenter');
+    }
+    //relación uno a muchos(inversa) con area
+     public function area(){
+        return $this->belongsTo('App\Models\Area');
+    }
+    //relación de muchos a muchos
+     public function courses(){
+        return $this->belongsToMany('App\Models\Course');
+    }
 }
