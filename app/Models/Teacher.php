@@ -9,6 +9,13 @@ class Teacher extends Model
 {
     use HasFactory;
 
+      protected $fillable = [
+        'name',
+        'email',
+        'area_id',
+        'training_center_id',
+    ];
+
     //Relación uno a muchos(inversa) con trainingCenter
      public function trainingCenter(){
         return $this->belongsTo('App\Models\TrainingCenter');
