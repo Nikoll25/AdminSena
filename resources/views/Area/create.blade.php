@@ -8,7 +8,7 @@
 @csrf
 <div class="col-md-10">
 <label class="form-label"></label>
-    Nombre:
+    Nombre
     <br>
     <input class="form-control" type="text" name="name">
 </div>

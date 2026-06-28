@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="col-md-4">
-                <h5 class="fw-bold text-success">Admin SENA</h5>
+                <h5 class="fw-bold text-success">-Admin SENA-</h5>
                 <p class="text-muted">
                     Sistema para la gestión de áreas, cursos,
                     instructores, aprendices y centros de formación.

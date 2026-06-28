@@ -6,7 +6,7 @@
 <h1>Registrar Curso</h1>
 <form action="{{route('Course.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
-<label>
+<label class="form-label">
     Numero de ficha:
     <br>
     <input type="text" name="number">

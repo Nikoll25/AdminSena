@@ -11,7 +11,7 @@
         <input type="text" class="form-control">
     </div>
 
-    <div class="col-md-15">
+    <div class="col-md-14">
         <label class="form-label">Email:</label>
         <input type="email" class="form-control">
     </div>

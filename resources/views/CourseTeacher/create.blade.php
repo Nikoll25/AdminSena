@@ -7,7 +7,7 @@
 <form action="{{route('CourseTeacher.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
 <br><br>
- <label for="course_id">Curso</label>
+ <label class="form-label" for="course_id">Curso</label>
     <select name="course_id" id="course_id" class="form-control">
         <option value="">Seleccione un curso</option>
 

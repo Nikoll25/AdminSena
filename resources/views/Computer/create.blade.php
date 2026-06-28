@@ -6,7 +6,7 @@
     <h1>Registrar Computador</h1>
 <form action="{{route('Computer.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
-<label>
+<label class="form-label">
     Numero:
     <br>
     <input type="text" name="number">

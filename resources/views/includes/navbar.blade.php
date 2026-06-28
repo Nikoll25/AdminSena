@@ -2,7 +2,7 @@
     <div class="container">
 
         <a class="navbar-brand fw-bold" href="/">
-            Admin SENA
+            -Admin SENA-
         </a>
 
         <button class="navbar-toggler" type="button"

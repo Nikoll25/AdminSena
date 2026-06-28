@@ -7,7 +7,7 @@
 <form action="{{route('Apprentice.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
 <div class="col-md-15">
-<label class="form_label">
+<label class="form-label">
     Nombre:
     <br>
     <input class="form-control" type="text" name="name">
@@ -15,7 +15,7 @@
 </div>
 <br><br>
 <div class="col-md-15">
-<label class="form_label">
+<label class="form-label">
     email:
     <br>
     <input class="form-control" type="text" name="email">
@@ -23,14 +23,14 @@
 </div>
 <br><br>
 <div class="col-md-15">
-<label class="form_label">
+<label class="form-label">
     Número de teléfono:
     <br>
     <input class="form-control" type="text" name="cell_number">
 </label >
 </div>
 <br><br>
- <label class="form_label" for="course_id">Curso</label>
+ <label class="form-label" for="course_id">Curso</label>
 <select class="form-select" aria-label="Default select example" name="course_id" id="course_id">
     <option value="">Seleccione un curso</option>
 
