@@ -1,35 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+@extends('layouts.app')
+
+@section('content')
+<div class="card shadow-sm p-4">
     <h1>Registrar Aprendiz</h1>
 <form action="{{route('Apprentice.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
-<label>
+<div class="col-md-15">
+<label class="form_label">
     Nombre:
     <br>
-    <input type="text" name="name">
+    <input class="form-control" type="text" name="name">
 </label>
+</div>
 <br><br>
-<label>
+<div class="col-md-15">
+<label class="form_label">
     email:
     <br>
-    <input type="text" name="email">
+    <input class="form-control" type="text" name="email">
 </label>
+</div>
 <br><br>
-<label>
+<div class="col-md-15">
+<label class="form_label">
     Número de teléfono:
     <br>
-    <input type="text" name="cell_number">
-</label>
+    <input class="form-control" type="text" name="cell_number">
+</label >
+</div>
 <br><br>
- <label for="course_id">Curso</label>
-
-<select name="course_id" id="course_id">
+ <label class="form_label" for="course_id">Curso</label>
+<select class="form-select" aria-label="Default select example" name="course_id" id="course_id">
     <option value="">Seleccione un curso</option>
 
     @foreach($courses as $course)
@@ -39,9 +41,8 @@
     @endforeach
 </select>
 <br><br>
- <label for="computer_id">Computador</label>
-
-<select name="computer_id" id="computer_id">
+ <label class="form_label" for="computer_id">Computador</label>
+<select class="form-select" aria-label="Default select example" name="computer_id" id="computer_id">
     <option value="">Seleccione un computador</option>
 
     @foreach($computers as $computer)
@@ -50,9 +51,8 @@
         </option>
     @endforeach
 </select>
-<br>
 <br><br>
-<button type="submit">Enviar Formulario:</button>
+<button class="btn btn-success" type="submit">Enviar Formulario:</button>
 </form>
-</body>
-</html>
+</div>
+@endsection

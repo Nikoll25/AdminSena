@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Registrar Curso</h1>
+
+@extends('layouts.app')
+
+@section('content')
+<div class="card shadow-sm p-4">
+<h1>Registrar Curso</h1>
 <form action="{{route('Course.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
 <label>
@@ -44,9 +41,8 @@
         </option>
     @endforeach
 </select>
-<br>
 <br><br>
-<button type="submit">Enviar Formulario:</button>
+<button class="btn btn-success" type="submit">Enviar Formulario:</button>
 </form>
-</body>
-</html>
+</div>
+@endsection
