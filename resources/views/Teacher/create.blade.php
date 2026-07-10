@@ -8,12 +8,12 @@
 @csrf
     <div class="col-md-15">
         <label class="form-label">Nombre:</label>
-        <input type="text" class="form-control">
+        <input type="text" name="name" class="form-control" required>
     </div>
 
     <div class="col-md-14">
         <label class="form-label">Email:</label>
-        <input type="email" class="form-control">
+        <input type="email" name="email" class="form-control" required>
     </div>
  <div class="mb-3">
  <label class="form-label" for="area_id">Area</label>

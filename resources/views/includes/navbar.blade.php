@@ -26,8 +26,8 @@
                         Administración
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/Area/create">Áreas</a></li>
-                        <li><a class="dropdown-item" href="/TrainingCenter/create">Centros de formación</a></li>
+                        <li><a class="dropdown-item" href="/area/list">Áreas</a></li>
+                        <li><a class="dropdown-item" href="/trainingcenter/list">Centros de formación</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -36,13 +36,13 @@
                         Académico
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/teacher/create">Instructores</a></li>
-                        <li><a class="dropdown-item" href="/course/create">Cursos</a></li>
-                        <li><a class="dropdown-item" href="/apprentice/create">Aprendices</a></li>
+                        <li><a class="dropdown-item" href="/teacher/list">Instructores</a></li>
+                        <li><a class="dropdown-item" href="/course/list">Cursos</a></li>
+                        <li><a class="dropdown-item" href="/apprentice/list">Aprendices</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Computer/create">
+                    <a class="nav-link" href="/computer/list">
                         Computadores
                     </a>
                 </li>

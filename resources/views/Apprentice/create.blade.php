@@ -1,58 +1,95 @@
-
 @extends('layouts.app')
 
 @section('content')
-<div class="card shadow-sm p-4">
-    <h1>Registrar Aprendiz</h1>
-<form action="{{route('Apprentice.store')}}" method="POST" enctype="multipart/form-data">
-@csrf
-<div class="col-md-15">
-<label class="form-label">
-    Nombre:
-    <br>
-    <input class="form-control" type="text" name="name">
-</label>
-</div>
-<br><br>
-<div class="col-md-15">
-<label class="form-label">
-    email:
-    <br>
-    <input class="form-control" type="text" name="email">
-</label>
-</div>
-<br><br>
-<div class="col-md-15">
-<label class="form-label">
-    Número de teléfono:
-    <br>
-    <input class="form-control" type="text" name="cell_number">
-</label >
-</div>
-<br><br>
- <label class="form-label" for="course_id">Curso</label>
-<select class="form-select" aria-label="Default select example" name="course_id" id="course_id">
-    <option value="">Seleccione un curso</option>
+<div class="container mt-4">
 
-    @foreach($courses as $course)
-        <option value="{{ $course->id }}">
-            {{ $course->number }}
-        </option>
-    @endforeach
-</select>
-<br><br>
- <label class="form_label" for="computer_id">Computador</label>
-<select class="form-select" aria-label="Default select example" name="computer_id" id="computer_id">
-    <option value="">Seleccione un computador</option>
+    <div class="card shadow">
+        <div class="card-header bg-secondary  text-white">
+            <h3 class="mb-0">Registrar Aprendiz</h3>
+        </div>
 
-    @foreach($computers as $computer)
-        <option value="{{ $computer->id }}">
-            {{ $computer->number}}
-        </option>
-    @endforeach
-</select>
-<br><br>
-<button class="btn btn-success" type="submit">Enviar Formulario:</button>
-</form>
+        <div class="card-body">
+
+            <form action="{{ route('Apprentice.store') }}" method="POST">
+                @csrf
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Ingrese el nombre"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Ingrese el correo"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="cell_number" class="form-label">Número de teléfono</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="cell_number"
+                            name="cell_number"
+                            placeholder="Ingrese el número de teléfono"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="course_id" class="form-label">Curso</label>
+                        <select class="form-select" id="course_id" name="course_id" required>
+                            <option value="">Seleccione un curso</option>
+
+                            @foreach($courses as $course)
+                                <option value="{{ $course->id }}">
+                                    {{ $course->number }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <label for="computer_id" class="form-label">Computador</label>
+                        <select class="form-select" id="computer_id" name="computer_id" required>
+                            <option value="">Seleccione un computador</option>
+
+                            @foreach($computers as $computer)
+                                <option value="{{ $computer->id }}">
+                                    {{ $computer->number }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a href="{{ route('apprentice.index') }}" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="btn btn-success">
+                        Guardar Aprendiz
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
 </div>
 @endsection

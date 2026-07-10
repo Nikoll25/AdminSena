@@ -8,11 +8,18 @@ use App\Models\TrainingCenter;
 
 class TrainingCenterController extends Controller
 {
+    public function index(){
+
+        $trainingcenters=TrainingCenter::all();
+
+        return view('TrainingCenter.index',compact('trainingcenters'));
+    }
+
     public function create(){
      return view('TrainingCenter.create');
     }
-    public function store(Request $request)
-{
+    
+    public function store(Request $request){
     $trainingcenter = new TrainingCenter();
 
     $trainingcenter->name = $request->name;
@@ -20,6 +27,13 @@ class TrainingCenterController extends Controller
 
     $trainingcenter->save();
 
-    return $trainingcenter;
-}
+    return redirect()->route('trainingcenter.index');
+    }
+    public function show ($id){
+
+     $trainingcenter=TrainingCenter::find($id);
+       return view('TrainingCenter.show',compact('trainingcenter'));
+
+
+    }
 }
