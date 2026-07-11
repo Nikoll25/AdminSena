@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingCenter extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'location',
+    ];
 
     //Relación de uno a muchos apuntando a Course
      public function courses(){

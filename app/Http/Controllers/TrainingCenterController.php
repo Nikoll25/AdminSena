@@ -18,7 +18,7 @@ class TrainingCenterController extends Controller
     public function create(){
      return view('TrainingCenter.create');
     }
-    
+
     public function store(Request $request){
     $trainingcenter = new TrainingCenter();
 
@@ -33,7 +33,25 @@ class TrainingCenterController extends Controller
 
      $trainingcenter=TrainingCenter::find($id);
        return view('TrainingCenter.show',compact('trainingcenter'));
+    }
 
+    public function edit(TrainingCenter $trainingcenter){
 
+        return view('TrainingCenter.edit', compact('trainingcenter'));
+    }
+
+    public function update(Request $request, TrainingCenter $trainingcenter)
+    {
+
+        $trainingcenter->update($request->all());
+
+        return redirect()->route('trainingcenter.index');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(TrainingCenter $trainingcenter)
+    {
+        $trainingcenter->delete();
+        return redirect()->route('trainingcenter.index');
     }
 }

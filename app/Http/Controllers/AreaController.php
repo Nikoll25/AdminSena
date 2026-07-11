@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
-    public function index(){
+public function index()
+{
+     $areas=Area::all();
 
-        $areas=Area::all();
-
-        return view('Area.index',compact('areas'));
-    }
+        return view('area.index',compact('areas'));
+}
 
     public function create(){
         return view('Area.create');
@@ -35,4 +35,25 @@ class AreaController extends Controller
 
 
     }
+
+    public function edit(Area $area){
+
+        return view('Area.edit', compact('area'));
+    }
+
+    public function update(Request $request, Area $area)
+    {
+
+        $area->update($request->all());
+
+        return redirect()->route('area.index');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Area $area)
+    {
+        $area->delete();
+        return redirect()->route('area.index');
+    }
+
 }

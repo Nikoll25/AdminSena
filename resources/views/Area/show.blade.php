@@ -4,7 +4,7 @@
 <div class="container mt-5">
 
     <div class="card shadow">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-success text-white">
             <h3 class="mb-0">Información del Área</h3>
         </div>
 

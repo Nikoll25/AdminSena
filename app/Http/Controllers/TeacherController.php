@@ -45,4 +45,26 @@ class TeacherController extends Controller
 
 
     }
+
+    public function edit(Teacher $teacher){
+
+        $areas = Area::all();
+        $trainingcenters = TrainingCenter::all();
+        return view('Teacher.edit', compact('teacher','areas','trainingcenters'));
+    }
+
+    public function update(Request $request, Teacher $teacher)
+    {
+
+        $teacher->update($request->all());
+
+        return redirect()->route('teacher.index');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Teacher $teacher)
+    {
+        $teacher->delete();
+        return redirect()->route('teacher.index');
+    }
 }

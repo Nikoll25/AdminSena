@@ -25,24 +25,36 @@ Route::get('area/create',[AreaController::class,'create']);
 Route::post('area/store',[AreaController::class,'store'])->name('Area.store');
 Route::get('area/list',[AreaController::class,'index'])->name('area.index');
 Route::get('area/{id}',[AreaController::class,'show'])->name('area.show');
+Route::get('area/{area}/editar',[AreaController::class,'edit'])->name('area.edit');
+Route::put('area/{area}',[AreaController::class,'update'])->name('area.update');
+Route::delete('area/{area}',[AreaController::class,'destroy'])->name('area.destroy');
 
 //rutas para computer
 Route::get('computer/create',[ComputerController::class,'create']);
 Route::post('computer/store',[ComputerController::class,'store'])->name('Computer.store');
 Route::get('computer/list',[ComputerController::class,'index'])->name('computer.index');
 Route::get('computer/{id}',[ComputerController::class,'show'])->name('computer.show');
+Route::get('computer/{computer}/editar',[ComputerController::class,'edit'])->name('computer.edit');
+Route::put('computer/{computer}',[ComputerController::class,'update'])->name('computer.update');
+Route::delete('computer/{computer}',[ComputerController::class,'destroy'])->name('computer.destroy');
 
 //rutas para trainingCenter
 Route::get('trainingcenter/create',[trainingcenterController::class,'create']);
 Route::post('trainingcenter/store',[TrainingCenterController::class,'store'])->name('TrainingCenter.store');
 Route::get('trainingcenter/list',[TrainingCenterController::class,'index'])->name('trainingcenter.index');
 Route::get('trainingcenter/{id}',[TrainingCenterController::class,'show'])->name('trainingcenter.show');
+Route::get('trainingcenter/{trainingcenter}/editar',[TrainingCenterController::class,'edit'])->name('trainingcenter.edit');
+Route::put('trainingcenter/{trainingcenter}',[TrainingCenterController::class,'update'])->name('trainingcenter.update');
+Route::delete('trainingcenter/{trainingcenter}',[TrainingCenterController::class,'destroy'])->name('trainingcenter.destroy');
 
 //rutas para teacher
 Route::get('teacher/create',[TeacherController::class,'create']);
 Route::post('teacher/store',[TeacherController::class,'store'])->name('Teacher.store');
 Route::get('teacher/list',[TeacherController::class,'index'])->name('teacher.index');
 Route::get('teacher/{id}',[TeacherController::class,'show'])->name('teacher.show');
+Route::get('teacher/{teacher}/editar',[TeacherController::class,'edit'])->name('teacher.edit');
+Route::put('teacher/{teacher}',[TeacherController::class,'update'])->name('teacher.update');
+Route::delete('teacher/{teacher}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 
 //rutas para course
 Route::get('course/create',[CourseController::class,'create']);
