@@ -8,6 +8,8 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CourseTeacherController;
+use App\Http\Controllers\HomeController;
+
 
 
 /*
@@ -20,6 +22,7 @@ use App\Http\Controllers\CourseTeacherController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/inicio', [HomeController::class, 'index'])->name('home');
 //rutas para area
 Route::get('area/create',[AreaController::class,'create']);
 Route::post('area/store',[AreaController::class,'store'])->name('Area.store');
@@ -61,9 +64,15 @@ Route::get('course/create',[CourseController::class,'create']);
 Route::post('course/store',[CourseController::class,'store'])->name('Course.store');
 Route::get('course/list',[CourseController::class,'index'])->name('course.index');
 Route::get('course/{id}',[CourseController::class,'show'])->name('course.show');
+Route::get('course/{course}/editar',[CourseController::class,'edit'])->name('course.edit');
+Route::put('course/{course}',[CourseController::class,'update'])->name('course.update');
+Route::delete('course/{course}',[CourseController::class,'destroy'])->name('course.destroy');
 
 //rutas para apprentice
 Route::get('apprentice/create',[ApprenticeController::class,'create']);
 Route::post('apprentice/store',[ApprenticeController::class,'store'])->name('Apprentice.store');
 Route::get('apprentice/list',[ApprenticeController::class,'index'])->name('apprentice.index');
 Route::get('apprentice/{id}',[ApprenticeController::class,'show'])->name('apprentice.show');
+Route::get('apprentice/{apprentice}/editar',[ApprenticeController::class,'edit'])->name('apprentice.edit');
+Route::put('apprentice/{apprentice}',[ApprenticeController::class,'update'])->name('apprentice.update');
+Route::delete('apprentice/{apprentice}',[ApprenticeController::class,'destroy'])->name('apprentice.destroy');

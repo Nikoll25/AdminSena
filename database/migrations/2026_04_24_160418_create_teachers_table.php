@@ -15,24 +15,24 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            
+
             //creo la llave foranea para area
-            $table->unsignedBigInteger('area_id')->nullable()->unique();
+            $table->unsignedBigInteger('area_id');
 
             $table->foreign('area_id')
                 ->references('id')
                 ->on('areas')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             //creo la llave foranea para training_Center
-            $table->unsignedBigInteger('training_center_id')->nullable()->unique();
+            $table->unsignedBigInteger('training_center_id');
 
             $table->foreign('training_center_id')
                 ->references('id')
                 ->on('training_centers')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

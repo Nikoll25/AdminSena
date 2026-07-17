@@ -41,7 +41,27 @@ class ApprenticeController extends Controller
 
      $apprentice=Apprentice::find($id);
        return view('Apprentice.show',compact('apprentice'));
+    }
 
+    public function edit(Apprentice $apprentice){
 
+        $courses = Course::all();
+        $computers = Computer::all();
+        return view('Apprentice.edit', compact('apprentice','courses','computers'));
+    }
+
+    public function update(Request $request, Apprentice $apprentice)
+    {
+
+        $apprentice->update($request->all());
+
+        return redirect()->route('apprentice.index');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Apprentice $apprentice)
+    {
+        $apprentice->delete();
+        return redirect()->route('apprentice.index');
     }
     }

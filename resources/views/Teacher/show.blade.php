@@ -30,6 +30,7 @@
                         <th>Centro de formación</th>
                         <td>{{ $teacher->trainingCenter->name }}</td>
                     </tr>
+                    
                 </tbody>
             </table>
             <div class="text-end">

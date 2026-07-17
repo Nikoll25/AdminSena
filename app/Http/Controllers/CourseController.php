@@ -40,7 +40,27 @@ class CourseController extends Controller
 
       $course=Course::find($id);
         return view('course.show',compact('course'));
+    }
 
+    public function edit(Course $course){
 
+        $areas = Area::all();
+        $trainingcenters = TrainingCenter::all();
+        return view('course.edit', compact('course','areas','trainingcenters'));
+    }
+
+    public function update(Request $request, Course $course)
+    {
+
+        $course->update($request->all());
+
+        return redirect()->route('course.index');
+    }
+
+    //Destroy se encuentra el registro para luego eliminarlo..
+    public function destroy(Course $course)
+    {
+        $course->delete();
+        return redirect()->route('course.index');
     }
     }

@@ -1,48 +1,96 @@
-
 @extends('layouts.app')
 
 @section('content')
-<div class="card shadow-sm p-4">
-<h1>Registrar Curso</h1>
-<form action="{{route('Course.store')}}" method="POST" enctype="multipart/form-data">
-@csrf
-<label class="form-label">
-    Numero de ficha:
-    <br>
-    <input type="text" name="number">
-</label>
-<br><br>
-<label>
-    Día:
-    <br>
-    <input type="text" name="day">
-</label>
-<br>
-<br>
- <label for="area_id">Area</label>
-    <select name="area_id" id="area_id" class="form-control">
-        <option value="">Seleccione una Area</option>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
 
-        @foreach($areas as $area)
-            <option value="{{ $area->id }}">
-                {{ $area->name }}
-            </option>
-        @endforeach
-    </select>
-<br>
-<br><br>
- <label for="training_center_id">Centro de formación</label>
+                <div class="card border-0 shadow-lg rounded-4">
 
-<select name="training_center_id" id="training_center_id">
-    <option value="">Seleccione un centro de formación</option>
-    @foreach($trainingCenters as $trainingCenter)
-        <option value="{{ $trainingCenter->id }}">
-            {{ $trainingCenter->name }}
-        </option>
-    @endforeach
-</select>
-<br><br>
-<button class="btn btn-success" type="submit">Enviar Formulario:</button>
-</form>
-</div>
+                    <div class="card-header bg-success text-white text-center py-3 rounded-top-4">
+
+                        <h3 class="mb-0">
+                            <i class="bi bi-journal-plus"></i>
+                            Registrar Curso
+                        </h3>
+
+                    </div>
+                    <div class="card-body p-4">
+
+
+                        <form action="{{ route('Course.store') }}" method="POST">
+                            @csrf
+                            <div class="mb-4">
+
+                                <label for="number" class="form-label fw-bold">
+                                    Número de ficha
+                                </label>
+
+                                <input type="text" class="form-control form-control-lg" id="number" name="number"
+                                    placeholder="Ingrese el número de ficha" required>
+
+                            </div>
+                            <div class="mb-4">
+
+                                <label for="day" class="form-label fw-bold">
+                                    Día
+                                </label>
+
+                                <input type="text" class="form-control form-control-lg" id="day" name="day"
+                                    placeholder="Ingrese el día de formación" required>
+
+                            </div>
+                            <div class="mb-4">
+
+                                <label for="area_id" class="form-label fw-bold">
+                                    Área
+                                </label>
+                                <select name="area_id" id="area_id" class="form-select form-select-lg" required>
+                                    <option value="">
+                                        Seleccione un área
+                                    </option>
+                                    @foreach ($areas as $area)
+                                        <option value="{{ $area->id }}">
+                                            {{ $area->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
+
+                                <label for="training_center_id" class="form-label fw-bold">
+                                    Centro de formación
+                                </label>
+                                <select name="training_center_id" id="training_center_id" class="form-select form-select-lg"
+                                    required>
+                                    <option value="">
+                                        Seleccione un centro de formación
+                                    </option>
+                                    @foreach ($trainingCenters as $trainingCenter)
+                                        <option value="{{ $trainingCenter->id }}">
+                                            {{ $trainingCenter->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2">
+                                <a href="{{ route('course.index') }}" class="btn btn-outline-secondary">
+
+                                    <i class="bi bi-arrow-left"></i>
+                                    Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-success px-4">
+
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 @endsection

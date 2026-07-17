@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('cell_number');
 
             //creo la llave foranea para course
-            $table->unsignedBigInteger('course_id')->nullable()->unique();
+            $table->unsignedBigInteger('course_id')->nullable();
 
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
                 //creo la llave foranea para computer
             $table->unsignedBigInteger('computer_id')->nullable()->unique();
