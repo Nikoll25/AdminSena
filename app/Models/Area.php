@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
 
     //relación de uno a muchos apuntando a teacher
      public function teacher(){
@@ -17,4 +20,8 @@ class Area extends Model
      public function Courses(){
         return $this->hasMany('App\Models\Course');
     }
+            //relación uno a muchos apuntando a offer
+     public function offers(){
+        return $this->hasmany('App\Models\Offer');
+     }
 }

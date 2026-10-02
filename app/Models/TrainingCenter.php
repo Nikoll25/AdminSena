@@ -21,4 +21,8 @@ class TrainingCenter extends Model
      public function teachers(){
         return $this->hasmany('App\Models\Teacher');
     }
+        //relación uno a muchos apuntando a offer
+     public function offers(){
+        return $this->hasmany('App\Models\Offer');
+    }
 }

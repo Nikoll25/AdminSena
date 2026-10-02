@@ -1,296 +1,392 @@
-@extends('layouts.app')
-
-@section('content')
-    <!-- HERO -->
-        <!-- CARRUSEL -->
-        <div id="carouselInicio" class="carousel slide carousel-fade mt-4 mb-5 shadow rounded overflow-hidden"
-            data-bs-ride="carousel">
-
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="2"></button>
-            </div>
-
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/img1.webp') }}" class="d-block w-100" style="height:420px; object-fit:cover;"
-                        alt="Banner 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="fw-bold display-5" style="text-shadow:5px 5px 8px rgba(0,0,0,.8);">Bienvenido a Admin
-                            SENA</h2>
-                        <p class="fs-5" style="text-shadow:3px 3px 6px rgba(0,0,0,.8);">Gestiona aprendices, cursos,
-                            instructores y centros de formación desde un solo lugar.</p>
-                    </div>
-                </div>
+/* =========================================================
+   OFERTAS - CARRUSEL HORIZONTAL SIN JAVASCRIPT
+========================================================= */
 
-                <div class="carousel-item">
-                    <img src="{{ asset('img/img2.jpeg') }}" class="d-block w-100" style="height:420px; object-fit:cover;"
-                        alt="Banner 2">
+.offers-section {
+    padding: 85px 0 75px;
+}
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="fw-bold display-5" style="text-shadow:5px 5px 8px rgba(0,0,0,.8);">Formación Profesional
-                            Integral</h2>
-                        <p class="fs-5" style="text-shadow:3px 3px 6px rgba(0,0,0,.8);">Consulta y administra toda la
-                            información académica de manera rápida y sencilla.</p>
-                    </div>
-                </div>
+.offers-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
 
-                <div class="carousel-item">
-                    <img src="{{ asset('img/img3.jpg') }}" class="d-block w-100" style="height:420px; object-fit:cover;"
-                        alt="Banner 3">
+.offers-header .section-heading {
+    text-align: left;
+    margin: 0;
+}
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="fw-bold display-5" style="text-shadow:5px 5px 8px rgba(0,0,0,.8);">Tecnología al servicio
-                            de la educación</h2>
-                        <p class="fs-5" style="text-shadow:3px 3px 6px rgba(0,0,0,.8);">Un sistema diseñado para facilitar
-                            la gestión administrativa del SENA.</p>
-                    </div>
-                </div>
+.offers-header .section-heading p {
+    margin: 0;
+}
 
-            </div>
+.offers-count {
+    background: white;
+    border: 1px solid #e0e9dc;
+    padding: 10px 17px;
+    border-radius: 30px;
+    color: #52734c;
+    font-size: .9rem;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,.04);
+}
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselInicio" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
 
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselInicio" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+/* CONTENEDOR DEL CARRUSEL */
 
-        </div>
+.offers-carousel-wrapper {
+    position: relative;
+}
 
-    <!-- MODULOS -->
-    <div class="container mt-5">
 
-        <h2 class="text-center fw-bold mb-5">
-            Accesos rápidos
-        </h2>
+/* FILA HORIZONTAL */
 
-        <div class="row g-4">
+.offers-carousel {
+    display: flex;
+    gap: 25px;
 
-            <div class="col-md-4">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body">
+    overflow-x: auto;
 
-                        <i class="bi bi-mortarboard-fill display-3 text-success"></i>
+    padding: 10px 5px 30px;
 
-                        <h4 class="mt-3">Aprendices</h4>
+    scroll-snap-type: x mandatory;
 
-                        <p>
-                            Gestiona toda la información de los aprendices.
-                        </p>
+    scrollbar-width: thin;
+    scrollbar-color: #b7cdb0 transparent;
+}
 
-                        <a href="{{ route('apprentice.index') }}" class="btn btn-success rounded-pill">
-                            Entrar
-                        </a>
 
-                    </div>
-                </div>
-            </div>
+/* BARRA DE DESPLAZAMIENTO */
 
-            <div class="col-md-4">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body">
+.offers-carousel::-webkit-scrollbar {
+    height: 7px;
+}
 
-                        <i class="bi bi-book-fill display-3 text-success"></i>
+.offers-carousel::-webkit-scrollbar-track {
+    background: #e9eee7;
+    border-radius: 20px;
+}
 
-                        <h4 class="mt-3">Cursos</h4>
+.offers-carousel::-webkit-scrollbar-thumb {
+    background: #b7cdb0;
+    border-radius: 20px;
+}
 
-                        <p>
-                            Consulta y administra los cursos.
-                        </p>
+.offers-carousel::-webkit-scrollbar-thumb:hover {
+    background: #39a900;
+}
 
-                        <a href="{{ route('course.index') }}" class="btn btn-success rounded-pill">
-                            Entrar
-                        </a>
 
-                    </div>
-                </div>
-            </div>
+/* =========================================================
+   TARJETA
+========================================================= */
 
-            <div class="col-md-4">
-                <div class="card border-0 shadow h-100 text-center">
-                    <div class="card-body">
+.offer-card {
+    flex: 0 0 350px;
 
-                        <i class="bi bi-pc-display display-3 text-success"></i>
+    background: white;
 
-                        <h4 class="mt-3">Computadores</h4>
+    border-radius: 25px;
 
-                        <p>
-                            Control del inventario de equipos.
-                        </p>
+    overflow: hidden;
 
-                        <a href="{{ route('computer.index') }}" class="btn btn-success rounded-pill">
-                            Entrar
-                        </a>
+    border: 1px solid #e3eadf;
 
-                    </div>
-                </div>
-            </div>
+    box-shadow:
+        0 10px 28px rgba(39,72,44,.08);
 
-        </div>
+    transition: .3s ease;
 
-    </div>
+    scroll-snap-align: start;
+}
 
-    <!-- ESTADISTICAS -->
+.offer-card:hover {
+    transform: translateY(-7px);
 
-    <div class="container mt-5">
+    box-shadow:
+        0 22px 45px rgba(39,72,44,.16);
 
-        <div class="row text-center">
+    border-color: #c8ddc1;
+}
 
-            <div class="col-md-3">
 
-                <div class="card border-0 shadow">
+/* =========================================================
+   IMAGEN
+========================================================= */
 
-                    <div class="card-body">
+.offer-image-wrapper {
+    height: 205px;
 
-                        <i class="bi bi-people-fill display-5 text-success"></i>
+    position: relative;
 
-                        <h2 class="fw-bold mt-2">
-                            {{ $apprentices }}
-                        </h2>
+    overflow: hidden;
+}
 
-                        <p>Aprendices</p>
+.offer-image {
+    width: 100%;
+    height: 100%;
 
-                    </div>
+    object-fit: cover;
 
-                </div>
+    transition: .4s;
+}
 
-            </div>
+.offer-card:hover .offer-image {
+    transform: scale(1.06);
+}
 
-            <div class="col-md-3">
+.offer-image-overlay {
+    position: absolute;
 
-                <div class="card border-0 shadow">
+    inset: 0;
 
-                    <div class="card-body">
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.02),
+            rgba(0,0,0,.48)
+        );
+}
 
-                        <i class="bi bi-book display-5 text-success"></i>
 
-                        <h2 class="fw-bold mt-2">
-                            {{ $courses }}
-                        </h2>
+/* =========================================================
+   MODALIDAD
+========================================================= */
 
-                        <p>Cursos</p>
+.offer-modality {
+    position: absolute;
 
-                    </div>
+    top: 15px;
+    left: 15px;
 
-                </div>
+    background: white;
 
-            </div>
+    color: #347a20;
 
-            <div class="col-md-3">
+    padding: 7px 13px;
 
-                <div class="card border-0 shadow">
+    border-radius: 30px;
 
-                    <div class="card-body">
+    font-size: .78rem;
 
-                        <i class="bi bi-building display-5 text-success"></i>
+    font-weight: 700;
 
-                        <h2 class="fw-bold mt-2">
-                            {{ $trainingCenters }}
-                        </h2>
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
+}
 
-                        <p>Centros</p>
 
-                    </div>
+/* =========================================================
+   CONTENIDO
+========================================================= */
 
-                </div>
+.offer-body {
+    padding: 23px;
+}
 
-            </div>
+.offer-area {
+    color: #6c9b5f;
 
-            <div class="col-md-3">
+    font-size: .75rem;
 
-                <div class="card border-0 shadow">
+    font-weight: 700;
 
-                    <div class="card-body">
+    text-transform: uppercase;
 
-                        <i class="bi bi-laptop display-5 text-success"></i>
+    margin-bottom: 8px;
+}
 
-                        <h2 class="fw-bold mt-2">
-                            {{ $computers }}
-                        </h2>
+.offer-title {
+    color: #234b2b;
 
-                        <p>Computadores</p>
+    font-size: 1.28rem;
 
-                    </div>
+    font-weight: 800;
 
-                </div>
+    line-height: 1.3;
 
-            </div>
+    margin-bottom: 10px;
 
-        </div>
+    min-height: 50px;
+}
 
-    </div>
+.offer-description {
+    color: #737b75;
 
-    <!-- INFORMACION -->
+    font-size: .88rem;
 
-    <div class="container mt-5">
+    line-height: 1.6;
 
-        <h2 class="text-center fw-bold mb-4">
-            Nuestra Institución
-        </h2>
+    margin-bottom: 18px;
 
-        <div class="row">
+    display: -webkit-box;
 
-            <div class="col-md-6">
+    -webkit-line-clamp: 2;
 
-                <div class="card shadow border-0 h-100">
+    -webkit-box-orient: vertical;
 
-                    <div class="card-body">
+    overflow: hidden;
+}
 
-                        <h3>
-                            <i class="bi bi-bullseye text-success"></i>
 
-                            Misión
-                        </h3>
+/* =========================================================
+   DATOS
+========================================================= */
 
-                        <hr>
+.offer-details {
+    display: grid;
 
-                        <p>
-                            El SENA está encargado de brindar formación profesional
-                            integral que contribuya al desarrollo social,
-                            tecnológico y económico del país.
-                        </p>
+    grid-template-columns: 1fr 1fr;
 
-                    </div>
+    gap: 9px;
 
-                </div>
+    margin-bottom: 18px;
+}
 
-            </div>
+.offer-detail {
+    background: #f4f8f1;
 
-            <div class="col-md-6">
+    border-radius: 12px;
 
-                <div class="card shadow border-0 h-100">
+    padding: 10px;
+}
 
-                    <div class="card-body">
+.offer-detail i {
+    color: #39a900;
 
-                        <h3>
+    margin-right: 4px;
+}
 
-                            <i class="bi bi-stars text-success"></i>
+.offer-detail small {
+    display: block;
 
-                            Visión
+    color: #8a918c;
 
-                        </h3>
+    font-size: .67rem;
 
-                        <hr>
+    margin-bottom: 3px;
+}
 
-                        <p>
+.offer-detail strong {
+    color: #43564a;
 
-                            Consolidarse como una institución líder en formación
-                            profesional integral, reconocida por su innovación,
-                            calidad y aporte al desarrollo del país.
+    font-size: .77rem;
+}
 
-                        </p>
 
-                    </div>
+/* =========================================================
+   CENTRO
+========================================================= */
 
-                </div>
+.offer-center {
+    display: flex;
 
-            </div>
+    align-items: flex-start;
 
-        </div>
+    gap: 8px;
 
-    </div>
-@endsection
+    color: #68736b;
+
+    font-size: .8rem;
+
+    margin-bottom: 17px;
+
+    min-height: 38px;
+}
+
+.offer-center i {
+    color: #39a900;
+
+    font-size: 1rem;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.offer-button {
+    width: 100%;
+
+    border: none;
+
+    background: #edf6e9;
+
+    color: #347a20;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.offer-button:hover {
+    background: #39a900;
+
+    color: white;
+}
+
+
+/* =========================================================
+   TEXTO DE DESLIZAMIENTO
+========================================================= */
+
+.carousel-scroll-info {
+    text-align: center;
+
+    color: #7c877e;
+
+    font-size: .8rem;
+
+    margin-top: 5px;
+}
+
+.carousel-scroll-info i {
+    color: #39a900;
+}
+
+
+/* =========================================================
+   SIN RESULTADOS
+========================================================= */
+
+.empty-offers {
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.06);
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+
+    background: #e7f3df;
+
+    color: #39a900;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    font-size: 2rem;
+}
