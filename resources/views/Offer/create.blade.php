@@ -41,6 +41,7 @@
                                     <option value="presencial">Presencial</option>
                                     <option value="virtual">Virtual</option>
                                 </select>
+                                
                             </div>
                             <div class="mb-4">
                                 <label for="startDate" class="form-label fw-bold">

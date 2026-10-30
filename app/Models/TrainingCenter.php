@@ -11,6 +11,8 @@ class TrainingCenter extends Model
     protected $fillable = [
         'name',
         'location',
+        'imagen_url',
+        'imagen_public_id',
     ];
 
     //Relación de uno a muchos apuntando a Course

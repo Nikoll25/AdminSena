@@ -15,7 +15,45 @@ class TeacherController extends Controller
 
         return response()->json($teachers);
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required|max:255',
+        'area_id' => 'required|exists:areas,id',
+        'training_center_id' => 'required|exists:training_centers,id',
+    ]);
+        $teacher = Teacher::create($request->all());
 
+
+        return response()->json($teacher);
+    }
+
+    public function show($id) //si se pasa $id se utiliza la comentada
+    {
+        $teacher = Teacher::findOrFail($id);
+        return response()->json($teacher);
+    }
+
+    public function update(Request $request, Teacher $teacher)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'area_id' => 'required|exists:areas,id',
+            'training_center_id' => 'required|exists:training_centers,id',
+        ]);
+
+        $teacher->update($request->all());
+
+        return response()->json ($teacher);
+    }
+
+    public function destroy(Teacher $teacher)
+    {
+        $teacher->delete();
+        return response()->json($teacher);
+    }
    // public function create(){
 
      //   $areas=Area::all();

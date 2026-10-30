@@ -10,6 +10,8 @@ class Area extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'imagen_url',
+        'imagen_public_id',
     ];
 
     //relación de uno a muchos apuntando a teacher

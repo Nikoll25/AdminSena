@@ -12,6 +12,8 @@ class Computer extends Model
     protected $fillable = [
         'number',
         'brand',
+        'imagen_url',
+        'imagen_public_id',
     ];
 
     //Relación uno a uno que apunte a aprentice
